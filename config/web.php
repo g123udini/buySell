@@ -17,6 +17,18 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'QEQKjRRWrlKqGid_p2xG817PBp2lLyxW',
         ],
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'vkontakte' => [
+                    'class' => 'yii\authclient\clients\VKontakte',
+                    'clientId' => '51494882',
+                    'clientSecret' => 'B4paHA1XlCYpi590Rt2L',
+                    'returnUrl' => 'http://localhost:8085/login/vk',
+                    'scope' => 'email'
+                ],
+            ],
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

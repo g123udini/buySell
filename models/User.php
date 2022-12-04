@@ -43,7 +43,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['email', 'login'], 'string', 'max' => 320],
             [['password', 'telegram'], 'string', 'max' => 64],
             [['email'], 'unique'],
-            [['login'], 'unique'],
         ];
     }
 
@@ -93,6 +92,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->primaryKey;
+    }
+
+    /**
+     * Загружает инфу полученную от  VK в User
+     * @param array $userInfo Массив Информации о пользователе
+     * @return void
+     * @throws \yii\base\Exception
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function loadAuthUser($userInfo): void
+    {
+        $this->email = $userInfo['email'];
+        $this->login = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
+        $this->avatar = $userInfo['photo'];
+        $this->password = Yii::$app->security->generateRandomString(8);
     }
 
     /**
