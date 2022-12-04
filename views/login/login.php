@@ -1,6 +1,6 @@
 <section class="login">
     <h1 class="visually-hidden">Логин</h1>
-    <form class="login__form form" action="#" method="post" enctype="multipart/form-data">
+        <?php $form = \yii\widgets\ActiveForm::begin(['id' => 'loginForm', 'options' => ['class' => 'login__form form']]) ?>
         <div class="login__title">
             <a class="login__link" href="sign-up.html">Регистрация</a>
             <h2>Вход</h2>
@@ -20,5 +20,5 @@
             Войти через
             <span class="icon icon--vk"></span>
         </a>
-    </form>
+        <?php \yii\widgets\ActiveForm::end(); ?>
 </section>
