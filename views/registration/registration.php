@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'passwordRepeat')->input('password', ['class' => 'js-field']) ?>
         </div>
         <button class="sign-up__button btn btn--medium js-button" type="submit" disabled="">Создать аккаунт</button>
-        <a class="btn btn--small btn--flex btn--white" href="#">
+        <a class="btn btn--small btn--flex btn--white" href="<?= Yii::$app->urlManager->createUrl(['login/auth']) ?>">
             Войти через
             <span class="icon icon--vk"></span>
         </a>
