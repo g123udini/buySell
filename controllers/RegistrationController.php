@@ -15,7 +15,7 @@ class RegistrationController extends Controller
 
         if (Yii::$app->request->getIsPost()) {
             $registrationForm->load(Yii::$app->request->post());
-            $registrationForm->avatar = UploadedFile::getInstance($registrationForm, 'file');
+            $registrationForm->avatar = UploadedFile::getInstance($registrationForm, 'avatar');
             if ($registrationForm->validate()) {
 
                 if (!$registrationForm->loadToUser()->save()) {

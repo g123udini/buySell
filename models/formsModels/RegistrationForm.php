@@ -44,13 +44,14 @@ class RegistrationForm extends Model
 
     public function loadToUser()
     {
-        if ($this->avatar && !$this->uploadFile()) {
+        if (!$this->uploadFile()) {
             throw new FileSaveException('Не удалось сохранить файл');
         }
         $user = new User();
         $user->email = $this->email;
         $user->login = $this->login;
         $user->password = Yii::$app->security->generatePasswordHash($this->password);
+        $user->avatar = $this->filePath;
 
         return $user;
     }
