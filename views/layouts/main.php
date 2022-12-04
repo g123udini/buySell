@@ -41,7 +41,7 @@ $this->beginPage() ?>
             <a class="header__avatar avatar" href="#">
                 <img src="img/avatar.jpg" srcset="img/avatar@2x.jpg 2x" alt="Аватар пользователя">
             </a>
-            <a class="header__input" href="sign-up.html">Вход и регистрация</a>
+            <a class="header__input" href="<?= Yii::$app->urlManager->createUrl(['registration']) ?>">Вход и регистрация</a>
         </div>
     </header>
 </header>
@@ -68,7 +68,7 @@ $this->beginPage() ?>
         <div class="page-footer__col">
             <ul class="page-footer__nav">
                 <li>
-                    <a href="sign-up.html">Вход и регистрация</a>
+                    <a href="<?= Yii::$app->urlManager->createUrl(['registration']) ?>">Вход и регистрация</a>
                 </li>
                 <li>
                     <a href="new-ticket.html">Создать объявление</a>
