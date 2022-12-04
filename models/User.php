@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -19,7 +20,7 @@ use Yii;
  * @property Auth[] $auths
  * @property Publication[] $publications
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -81,5 +82,41 @@ class User extends \yii\db\ActiveRecord
     public function getPublications()
     {
         return $this->hasMany(Publication::class, ['seller' => 'id']);
+    }
+
+
+    public static function findIdentity($id)
+    {
+        return self::findOne($id);
+    }
+
+    public function getId()
+    {
+        return $this->primaryKey;
+    }
+
+    /**
+     * Валидирует пароль введенный пользователем
+     * @param $password
+     * @return bool
+     */
+    public function validatePassword($password)
+    {
+        return \Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        // TODO: Implement findIdentityByAccessToken() method.
+    }
+
+    public function getAuthKey()
+    {
+        // TODO: Implement getAuthKey() method.
+    }
+
+    public function validateAuthKey($authKey)
+    {
+        // TODO: Implement validateAuthKey() method.
     }
 }

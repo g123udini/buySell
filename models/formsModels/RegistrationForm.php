@@ -34,7 +34,7 @@ class RegistrationForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Email',
+            'email' => 'Почта',
             'login' => 'Имя и Фамилия',
             'password' => 'Пароль',
             'passwordRepeat' => 'Повтор пароля',
