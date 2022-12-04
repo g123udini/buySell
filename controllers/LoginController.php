@@ -2,7 +2,13 @@
 
 namespace app\controllers;
 
-class loginController
-{
+use yii\web\Controller;
 
+class LoginController extends Controller
+{
+    public function actionIndex() {
+
+
+        return $this->render('login');
+    }
 }
